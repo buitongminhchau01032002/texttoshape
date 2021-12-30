@@ -12,10 +12,10 @@ app.use(function(req, res, next) {
     next();
 })
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname+'/index.html'))
+    res.send('Hello world!')
 })
-app.get('/create', (req, res) => {
-    res.send(makeImage(req.query.textInput))
+app.get('/circle', (req, res) => {
+    res.send(makeImage(req.query.textinput))
 })
 
 
