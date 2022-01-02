@@ -87,7 +87,7 @@ function makeHeartImage (stringInput) {
     ))
 
     ctx.translate(300, 300 - n*h/2 + R)
-    //draw()
+    draw()
 
     function createData () {
         arr1 = []
@@ -120,29 +120,18 @@ function makeHeartImage (stringInput) {
             let y = -R + row*h
             let lengthOfRow = x2 - x1
             let tempString = ''
-            while (indexWord < arrText.length && 
-                ctx.measureText(tempString + arrText[indexWord]).width <= lengthOfRow
-            ) {
+            while (ctx.measureText(tempString + arrText[indexWord]).width <= lengthOfRow) {
                 tempString += ((tempString != ''?' ':'') + arrText[indexWord])
                 indexWord++;
             }
             drawText(tempString, x1, x2, y)
-            if (indexWord >= arrText.length) {
-                return
-            }
 
             tempString = ''
-            while (indexWord < arrText.length && 
-                ctx.measureText(tempString + arrText[indexWord]).width <= lengthOfRow
-            ) {
+            while (ctx.measureText(tempString + arrText[indexWord]).width <= lengthOfRow) {
                 tempString += ((tempString != ''?' ':'') + arrText[indexWord])
                 indexWord++;
             }
             drawText(tempString, x3, x4, y)
-            if (indexWord >= arrText.length) {
-                return
-            }
-
         }
 
         // Ve phan duoi
