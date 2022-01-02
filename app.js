@@ -134,23 +134,23 @@ function makeHeartImage (stringInput) {
             drawText(tempString, x3, x4, y)
         }
 
-        // Ve phan duoi
-        for (let row = 0; row < n-nDiv3; row++) {
-            const [x1, x2] = arr2[row]
-            let y = row*h
-            let lengthOfRow = x2 - x1
-            let tempString = ''
-            while (indexWord < arrText.length && 
-                ctx.measureText(tempString + arrText[indexWord]).width <= lengthOfRow
-            ) {
-                tempString += ((tempString != ''?' ':'') + arrText[indexWord])
-                indexWord++;
-            }
-            drawText(tempString, x1, x2, y)
-            if (indexWord >= arrText.length) {
-                return
-            }
-        }
+        // // Ve phan duoi
+        // for (let row = 0; row < n-nDiv3; row++) {
+        //     const [x1, x2] = arr2[row]
+        //     let y = row*h
+        //     let lengthOfRow = x2 - x1
+        //     let tempString = ''
+        //     while (indexWord < arrText.length && 
+        //         ctx.measureText(tempString + arrText[indexWord]).width <= lengthOfRow
+        //     ) {
+        //         tempString += ((tempString != ''?' ':'') + arrText[indexWord])
+        //         indexWord++;
+        //     }
+        //     drawText(tempString, x1, x2, y)
+        //     if (indexWord >= arrText.length) {
+        //         return
+        //     }
+        // }
     }
 
     function isFull () {
