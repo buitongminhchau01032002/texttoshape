@@ -207,7 +207,7 @@ function makeHeartImage (stringInput) {
             let x = (x2+x1)/2 - ctx.measureText(stringDraw).width/2
             ctx.fillText(stringDraw, x, y)
         } else if (arrWord.length > 0) {
-            let spaceWidth = ((x2-x1) - ctx.measureText(stringDraw).width) / (arrWord.length-1)
+            let spaceWidth = ((x2-x1) - ctx.measureText(arrWord.join()).width) / (arrWord.length-1)
             let xCurrent = x1
             arrWord.forEach(word => {
                 ctx.fillText(word, xCurrent, y)
