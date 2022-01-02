@@ -24,7 +24,6 @@ app.get('/heart', (req, res) => {
 })
 
 function makeHeartImage (stringInput) {
-    console.log(stringInput)
     registerFont(path.join(__dirname+'/public/DancingScript-Regular.ttf'), { family: 'DancingScript' })
 
     const canvas = createCanvas(600, 600)
@@ -207,14 +206,23 @@ function makeHeartImage (stringInput) {
             let x = (x2+x1)/2 - ctx.measureText(stringDraw).width/2
             ctx.fillText(stringDraw, x, y)
         } else if (arrWord.length > 0) {
-            let spaceWidth = ((x2-x1) - ctx.measureText(arrWord.join()).width) / (arrWord.length-1)
+            let textNotSpace = ''
+            for (let i = 0; i < arrWord.length; i++) {
+                textNotSpace += arrWord[i]
+            }
+            let spaceWidth = ((x2-x1) - ctx.measureText(textNotSpace).width) / (arrWord.length-1)
             let xCurrent = x1
+            ctx.beginPath();
+            ctx.rect(x1, y, x2-x1, 1);
+            ctx.stroke();
             arrWord.forEach(word => {
                 ctx.fillText(word, xCurrent, y)
                 xCurrent += (ctx.measureText(word).width + spaceWidth)
             })
+            
         }
     }
+
     return canvas.toDataURL()
 }
 
