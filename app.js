@@ -20,10 +20,12 @@ app.get('/circle', (req, res) => {
     res.send(makeCircleImage(req.query.textinput))
 })
 app.get('/heart', (req, res) => {
-    res.send(makeHeartImage(req.query.textinput))
+    // res.send(makeHeartImage(req.query.textinput))
+    res.send("Test")
 })
 
 function makeHeartImage (stringInput) {
+    console.log(stringInput)
     registerFont(path.join(__dirname+'/public/DancingScript-Regular.ttf'), { family: 'DancingScript' })
 
     const canvas = createCanvas(600, 600)
