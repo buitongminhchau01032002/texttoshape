@@ -205,14 +205,14 @@ function makeHeartImage (stringInput) {
         const arrWord = stringDraw.split(' ')
         if (arrWord.length === 1) {
             let x = (x2+x1)/2 - ctx.measureText(stringDraw).width/2
-            //ctx.fillText(stringDraw, x, y)
+            ctx.fillText(stringDraw, x, y)
         } else if (arrWord.length > 0) {
-            let spaceWidth = ((x2-x1) - ctx.measureText(stringDraw.replaceAll(' ', '')).width)/(arrWord.length-1)
-            let xCurrent = x1
-            arrWord.forEach(word => {
-                //ctx.fillText(word, xCurrent, y)
-                xCurrent += (ctx.measureText(word).width + spaceWidth)
-            })
+            // let spaceWidth = ((x2-x1) - ctx.measureText(stringDraw.replaceAll(' ', '')).width)/(arrWord.length-1)
+            // let xCurrent = x1
+            // arrWord.forEach(word => {
+            //     ctx.fillText(word, xCurrent, y)
+            //     xCurrent += (ctx.measureText(word).width + spaceWidth)
+            // })
         }
     }
     return canvas.toDataURL()
