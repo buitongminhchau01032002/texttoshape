@@ -124,14 +124,14 @@ function makeHeartImage (stringInput) {
                 tempString += ((tempString != ''?' ':'') + arrText[indexWord])
                 indexWord++;
             }
-            drawText(tempString, x1, x2, y)
+            //drawText(tempString, x1, x2, y)
 
             tempString = ''
             while (ctx.measureText(tempString + arrText[indexWord]).width <= lengthOfRow) {
                 tempString += ((tempString != ''?' ':'') + arrText[indexWord])
                 indexWord++;
             }
-            drawText(tempString, x3, x4, y)
+            //drawText(tempString, x3, x4, y)
         }
 
         // // Ve phan duoi
