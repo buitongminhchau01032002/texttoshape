@@ -11,6 +11,8 @@ app.use(function(req, res, next) {
     res.header('Access-Control-Allow-Headers', 'Content-Type');
     next();
 })
+app.use(express.urlencoded({extended: true}));
+
 app.get('/', (req, res) => {
     res.send('Hello world!')
 })
