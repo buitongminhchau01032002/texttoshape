@@ -212,9 +212,6 @@ function makeHeartImage (stringInput) {
             }
             let spaceWidth = ((x2-x1) - ctx.measureText(textNotSpace).width) / (arrWord.length-1)
             let xCurrent = x1
-            ctx.beginPath();
-            ctx.rect(x1, y, x2-x1, 1);
-            ctx.stroke();
             arrWord.forEach(word => {
                 ctx.fillText(word, xCurrent, y)
                 xCurrent += (ctx.measureText(word).width + spaceWidth)
