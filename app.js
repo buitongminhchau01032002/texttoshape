@@ -124,14 +124,14 @@ function makeHeartImage (stringInput) {
                 tempString += ((tempString != ''?' ':'') + arrText[indexWord])
                 indexWord++;
             }
-            //drawText(tempString, x1, x2, y)
+            drawText(tempString, x1, x2, y)
 
             tempString = ''
             while (ctx.measureText(tempString + arrText[indexWord]).width <= lengthOfRow) {
                 tempString += ((tempString != ''?' ':'') + arrText[indexWord])
                 indexWord++;
             }
-            //drawText(tempString, x3, x4, y)
+            drawText(tempString, x3, x4, y)
         }
 
         // Ve phan duoi
@@ -146,7 +146,7 @@ function makeHeartImage (stringInput) {
                 tempString += ((tempString != ''?' ':'') + arrText[indexWord])
                 indexWord++;
             }
-            //drawText(tempString, x1, x2, y)
+            drawText(tempString, x1, x2, y)
             if (indexWord >= arrText.length) {
                 return
             }
@@ -203,20 +203,17 @@ function makeHeartImage (stringInput) {
     // Ve mot hang can deu 2 ben
     function drawText (stringDraw, x1, x2, y) {
         const arrWord = stringDraw.split(' ')
-        if (arrWord.length === 0) {
-            return
-        }
         if (arrWord.length === 1) {
             let x = (x2+x1)/2 - ctx.measureText(stringDraw).width/2
             ctx.fillText(stringDraw, x, y)
-            return
+        } else if (arrWord.length > 0) {
+            let spaceWidth = ((x2-x1) - ctx.measureText(stringDraw.replaceAll(' ', '')).width)/(arrWord.length-1)
+            let xCurrent = x1
+            arrWord.forEach(word => {
+                ctx.fillText(word, xCurrent, y)
+                xCurrent += (ctx.measureText(word).width + spaceWidth)
+            })
         }
-        let spaceWidth = ((x2-x1) - ctx.measureText(stringDraw.replaceAll(' ', '')).width)/(arrWord.length-1)
-        let xCurrent = x1
-        arrWord.forEach(word => {
-            ctx.fillText(word, xCurrent, y)
-            xCurrent += (ctx.measureText(word).width + spaceWidth)
-        })
     }
     return canvas.toDataURL()
 }
