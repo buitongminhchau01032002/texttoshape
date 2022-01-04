@@ -25,15 +25,16 @@ app.get('/heart', (req, res) => {
 
 function makeHeartImage (stringInput) {
     registerFont(path.join(__dirname+'/public/DancingScript-Regular.ttf'), { family: 'DancingScript' })
-
-    const canvas = createCanvas(600, 600)
+    const canvasWidth = 1600
+    const canvasHeight = 1600
+    const canvas = createCanvas(canvasWidth, canvasHeight)
     let ctx = canvas.getContext('2d')
-    ctx.font = '24px "DancingScript"'
+    ctx.font = '70px "DancingScript"'
 
     const arrText = stringInput.split(' ')
     let arr1 = []
     let arr2 = []
-    const h = 20
+    const h = 70
     let n = 12
     let nDiv3 = Math.floor(n/3)
     let R = nDiv3*h
@@ -85,7 +86,7 @@ function makeHeartImage (stringInput) {
         arr.map(x => x-x/(2*R)*mid)
     ))
 
-    ctx.translate(300, 300 - n*h/2 + R)
+    ctx.translate(canvasWidth/2, canvasHeight/2 - n*h/2 + R)
     draw()
 
     function createData () {
